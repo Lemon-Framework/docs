@@ -66,3 +66,5 @@ Route::get('/users/{user}', function($user) {
 ```
 
 In this example, if we send request to `/users/Fido/` we will see `Hello Fido`. So dynamic routing is basicaly about creating parts in route that user can fill with everyrhing they want. Content of the path will be passed into to function as argument. We can have multiple parts like this.
+
+Now let's talk about http.
