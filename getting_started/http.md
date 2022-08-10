@@ -60,6 +60,45 @@ $request->query("foo"); // "bar"
 While obtaining data from body (e.g. in POST) we can either get all the data as array with method `data()` or get single value using either method `get(key)` or just as property.
 
 ```php
-$request->query(); // ["foo" => "bar", "bar" => "baz"]
-$request->query("foo"); // "bar"
+$request->data(); // ["foo" => "hello", "bar" => "baz"]
+$request->get("foo"); // "hello"
+$request->foo; // "hello"
 ```
+
+You can also check if value exists using `has(key)`
+
+```php
+$request->data(); // ["foo" => "hello"]
+$request->has("foo"); // true
+$request->has("bar"); // false
+```
+
+Data from body are parsed automaticaly depending on content type.
+
+You can also check the content type using `is(type)`
+
+#### Working with headers
+
+Headers operarions are similar to body:
+
+```php
+$request->headers(); // ["Content-Type" => "application/x-www-form-urlencoded"]
+$request->hasHeader("Content-Type"); // true
+$request->hasHeader("foo"); // false
+$request->header("Content-Type"); // application/x-www-form-urlencoded
+```
+
+#### Cookies
+
+And the same goes for cookies
+
+```php
+$request->cookies(); // ["CSRF_TOKEN" => "lmoyiVzP82ZvSUSXx0FaOvpwdv1h4uxj"]
+$request->hasCookie("CSRF_TOKEN"); // true
+$request->hasHeader("foo"); // false
+$request->cookie("CSRF_TOKEN"); // lmoyiVzP82ZvSUSXx0FaOvpwdv1h4uxj
+```
+
+### Response
+
+
