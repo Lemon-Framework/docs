@@ -1,16 +1,16 @@
 # Routing
 
-Since in Lemon we don't follow traditional aproach file=route, there is other way. As said, lemon Lifecycle automaticaly found route depending on the reqest, but first we have to define them. For that there is shorthand class `Lemon\Route` which is basicaly static alias (Facade) for router. There are more of theese aliases, they are called Zests and they will be covered in next chapters. So let's define first route. This is simple definition:
+Since in Lemon we don't follow traditional aproach file=route, there is other way. As said, lemon Application automaticaly found route depending on the reqest, but first we have to define them. For that there is shorthand class `Lemon\Route` which is basicaly static alias (Facade) for router. There are more of theese aliases, they are called Zests and they will be covered in next chapters. So let's define first route. This is simple definition:
 
 ```
 <?php
 
-use Lemon\Kernel\Lifecycle;
+use Lemon\Kernel\Application;
 use Lemon\Route;
 
 include __DIR__.'/../vendor/autoload.php';
 
-Lifecycle::init(__DIR__);
+Application::init(__DIR__);
 
 Route::get('/', function() {
    return 'Hello world!';
@@ -23,12 +23,12 @@ In this example, when user sends get to path /, defined function will be execute
 ```
 <?php
 
-use Lemon\Kernel\Lifecycle;
+use Lemon\Kernel\Application;
 use Lemon\Route;
 
 include __DIR__.'/../vendor/autoload.php';
 
-Lifecycle::init(__DIR__);
+Application::init(__DIR__);
 
 Route::get('/', function() {
    return 'Hello world!';
@@ -39,6 +39,8 @@ Route::post('/', function() {
 });
 
 ```
+
+At this point, if you sent POST to / and received 400, its ok, its because of CSRF protection which will be covered later.
 
 This can be obviously applied to any method.
 
@@ -51,12 +53,12 @@ While defining routes path you can add dynamic parts.
 ```
 <?php
 
-use Lemon\Kernel\Lifecycle;
+use Lemon\Kernel\Application;
 use Lemon\Route;
 
 include __DIR__.'/../vendor/autoload.php';
 
-Lifecycle::init(__DIR__);
+Application::init(__DIR__);
 
 Route::get('/users/{user}', function($user) {
    return 'Hello '.$user;

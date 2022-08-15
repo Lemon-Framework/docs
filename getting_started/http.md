@@ -101,4 +101,122 @@ $request->cookie("CSRF_TOKEN"); // lmoyiVzP82ZvSUSXx0FaOvpwdv1h4uxj
 
 ### Response
 
+There are several classes representing response with different body. All of them inherit class \Lemon\Http\Response. Each class acts differently while sending body.
 
+#### Creating Response in routing
+
+Response is automaticaly created from return type of routing callback using ResponseFactory.
+
+If you return scalar type (string, bool, float, int) it will act normaly - just display it.
+
+Returning array or class that implements \Lemon\Http\Jsonable will send it as json (with content-type application/json). 
+
+```php
+Route::get('/api/users', function() {
+    return ['majkel', 'coolfido'];
+});
+```
+
+If you return template (see [templating]()) it will render it.
+
+```php
+Route::get('/home', function() {
+    return template('home');
+});
+```
+
+You can also return any Response object which is handy if we want to tweak the response.
+
+#### Creating Response Manualy
+
+As said before, class \Lemon\Http\ResponseFactory is able to create route using callback. But not just that. This was done thanks to `make()` method, there is another similar, which instead of callback takes any value and its called `resolve()`. 
+
+Like most others, it can be used staticaly or be injected. To use it staticaly there is `\Lemon\Response`.
+
+Another method is `error()` this method takes http status code and returns http error response.
+
+```php
+Route::get('/home', function() {
+    return \Lemon\Response::error(401);
+});
+```
+
+This will send simple 401 status page.
+
+To create own pages you can simple create templates. They will be stored in `templates/errors` and each named as `code.juice`.
+
+Also, you can create handlers, theese will be executed to create the response similary as routing callbacks.
+
+```php
+\Lemon\Response::handle(401, function() {
+    return 401;
+});
+
+Route::get('/home', function() {
+    return \Lemon\Response::error(401);
+});
+```
+
+Now we will see just 401.
+
+To make it simpler you can use `error()` function.
+
+To create redirect, you can use function `redirect(path)`. This method returns RedirectResponse which is dedicated to redirecting.
+
+Also, you can create all of this by hand, let's see all default responses. They are all located under `\Lemon\Http\Reponses\`
+
+EmptyResponse wont contain any body, its mostly returned by middlewares.
+
+HtmlResponse is most basic response which contains html body that will be send.
+
+JsonResponse contains body that will be send as json.
+
+RedirectResponse is similar to EmptyResponse but is used for redirecting.
+
+TemplateResponse is similar to HtmlResponse but before sending it renders template from its body.
+
+TextResponse sends body as plain text.
+
+#### Manipulating response
+
+You can set basicaly every parameter of response. 
+
+Theese are methods to work with headers.
+
+```php
+$response->header('Content-Type', 'text/html'); // sets given header to given value
+$response->header('Content-Type'); // returns value of given header (in this case text/html)
+
+$response->location('/'); // Sets location header to /
+$response->redirect('/'); // alias to location
+```
+
+To work with status code there is `code()` method
+
+```php
+$response->code(404) // sets code to given value (404)
+$response->code() // returns status code (404)
+```
+
+To set body there is `body()` method
+
+```php
+$response->body('Hello!');
+```
+
+To send cookie there is `cookie()` method.
+
+```php
+$response->cookie('REMEMBER', true, 10000); // sets cookie REMEMBER to true for 10000 seconds
+```
+
+
+To sum it up, if we want to for example send json with status code 404, we can do that by:
+
+```php
+return \Lemon\Response::resolve(['code' => 404])
+    ->code(404)
+;
+```
+
+We just make response (this is best way as it directly returns the response and you don't have to mind all the response objects) and then edit it.
