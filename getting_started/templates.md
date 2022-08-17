@@ -93,6 +93,25 @@ Layout are basicaly templates for templates, you define layout template with `yi
 ```
 {-- layout.juice --}
 
-TODO
-    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{ yield 'title' }</title>
+</head>
+<body>
+    { yield 'content' }
+</body>
+</html>
+
+{-- home.juice --}
+
+{ extends 'layout'}
+
+{ block 'title' } Home { /block }
+
+{ block 'content' }
+    Welcome!
+{ /block }
+
 ```
