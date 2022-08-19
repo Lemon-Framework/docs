@@ -2,6 +2,19 @@
 
 Php itself was designed as template engine, problem is that to make it safe you have to be carefull and its more work, Juice solves that. Juice is Lemons template engine with syntax similar to php. Theese templates can't contain any logic and they are only for displaying content. Juice templates are transpiled into clear php and saved which means they are as fast as writing regular php.
 
+One of the key features of Juice is hackability. It allows changing syntax and by default it has multiple "syntax packages". Theese can be set using config.
+
+By default there are syntax packs for juice, twig-like and blade. To change it, simply change config value.
+
+```php
+use Lemon\Templating\Juice\Syntax;
+
+config('templating.juice.syntax', Syntax::blade());
+config('templating.juice.syntax', Syntax::twig());
+```
+
+More about hacking in [hacking/templating]()
+
 ## Creating templates
 
 Templates by default are stored in folder templates outside of folder public. Every trmplate has extension .juice

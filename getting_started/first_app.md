@@ -4,7 +4,7 @@ Let's create first app. After we've prepared our app (as covered in (installatio
 
 First, we include composer libraries.
 
-```
+```php
 <?php
 
 include __DIR__.'/../vendor/autoload.php';
@@ -13,7 +13,7 @@ include __DIR__.'/../vendor/autoload.php';
 
 Now we have to initialize our app. For this there is setup-method:
 
-```
+```php
 <?php
 
 use Lemon\Kernel\Application;
