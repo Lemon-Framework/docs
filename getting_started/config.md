@@ -1,6 +1,6 @@
 # Configuration
 
-Most of lemon components are using configuration. This can be accesed via staticky using zest `\Lemon\Config` or function `config()`.
+Most of lemon components are using configuration. This can be accesed via `\Lemon\Config` or function `config()`.
 
 ## Setting config value:
 

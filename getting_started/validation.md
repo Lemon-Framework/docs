@@ -38,9 +38,7 @@ Let's see all the rules.
 
 ## Custom rules
 
-Validation is powered by `\Lemon\Validation\Validator` and all the rules are in `\Lemon\Validation\Rules`. Validation has obviously its zest `\Lemon\Validator`.
-
-To create custom rule, we first have to access the rules, to do that simply use `rules()` method. and then add the rule using `rule()` method.
+To create custom rule, we first have to access the rules, to do that simply use `\Lemon\Validator::rules()` method. and then add the rule using `rule()` method.
 
 ```php
 \Lemon\Validator::rules()->rule('upperCase', function(string $target) {

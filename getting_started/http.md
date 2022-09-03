@@ -29,8 +29,6 @@ Route::post("/posts/edit/{post}", function($post, \Lemon\Http\Request $request) 
 
 ```
 
-Alternative is again Zest \Lemon\Request.
-
 ### Working with request
 
 The most basic things can be reached using properties, let's say we've sent post to /posts/edit/foo?darkmode=true
@@ -129,15 +127,13 @@ You can also return any Response object which is handy if we want to tweak the r
 
 #### Creating Response Manualy
 
-As said before, class \Lemon\Http\ResponseFactory is able to create route using callback. But not just that. This was done thanks to `make()` method, there is another similar, which instead of callback takes any value and its called `resolve()`. 
-
-Like most others, it can be used staticaly or be injected. To use it staticaly there is `\Lemon\Response`.
+As said before, class \Lemon\ResponseFactory is able to create route using callback. But not just that. This was done thanks to `::make()` method, there is another similar, which instead of callback takes any value and its called `::resolve()`. 
 
 Another method is `error()` this method takes http status code and returns http error response.
 
 ```php
 Route::get('/home', function() {
-    return \Lemon\Response::error(401);
+    return \Lemon\ResponseFactory::error(401);
 });
 ```
 
@@ -153,7 +149,7 @@ Also, you can create handlers, theese will be executed to create the response si
 });
 
 Route::get('/home', function() {
-    return \Lemon\Response::error(401);
+    return \Lemon\ResponseFactory::error(401);
 });
 ```
 

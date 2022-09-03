@@ -21,7 +21,7 @@ Templates by default are stored in folder templates outside of folder public. Ev
 
 ## Displaying templates
 
-To display template, simply return Template instance, this can be obtained with either Zest `\Lemon\Template::make('name', variables)` or function `template('name', key: value)` where name doesn't have extension and . will be replaced with directory separator. Variables you pass (in zest as array, in function using named arguments) will be then available in the template.
+To display template, simply return Template instance, this can be obtained with either static method `\Lemon\Template::make('name', variables)` or function `template('name', key: value)` where name doesn't have extension and . will be replaced with directory separator. Variables you pass (in static method as array, in function using named arguments) will be then available in the template.
 
 Another way is to create route with only template using `\Lemon\Route::template(path, template)` where if template is missing it will use the path as path to the template.
 

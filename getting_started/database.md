@@ -48,7 +48,7 @@ Postgre has same configuration as mysql, however instead of `DB_UNIX_SOCKET` and
 
 ## Running queries
 
-All database manipulation is done by class `\Lemon\Database\Database` and its zest `\Lemon\DB`. 
+All database manipulation is done by class `\Lemon\DB`. 
 
 To run query, simply use `query()` method.
 
