@@ -3,7 +3,7 @@
 Installation is provided via composer. Since Lemon is microframework you won't get any starting application.
 
 ```sh
-$ composer install lemon_framework/lemon
+$ composer require lemon_framework/lemon
 ```
 
 Minimal version of php is 8.1.

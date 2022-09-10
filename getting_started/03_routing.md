@@ -1,6 +1,6 @@
 # Routing
 
-Since in Lemon we don't follow traditional aproach file=route, there is other way. As said, lemon Application automaticaly found route depending on the reqest, but first we have to define them. For that there is shorthand class `Lemon\Route` which is basicaly static alias (Facade) for router. There are more of theese aliases, they are called Zests and they will be covered in next chapters. So let's define first route. This is simple definition:
+Since in Lemon we don't follow traditional aproach file=route, there is other way. As said, lemon Application automaticaly found route depending on the reqest, but first we have to define them. For that there is class `Lemon\Route`. So let's define first route. This is simple definition:
 
 ```
 <?php
