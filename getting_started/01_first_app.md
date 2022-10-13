@@ -27,3 +27,4 @@ Application::init(__DIR__);
 Now what exactly is going on here?
 
 As we know, in traditional php every file represents single route. In lemon there is visible only one file, to make it simpler we will be using only this file for a while (but don't worry we will split it). Every request is redirected to this file and here we have Lemon. We use Application::init() to start our app, this will setup everyrhing for us (but don't worry we will explain what it does). So everytime there is request, Lemon finds route that matches given request and returns response.
+
