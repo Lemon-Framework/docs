@@ -23,5 +23,6 @@
     - [Terminal in depth](./digging_deeper/terminal_in_depth.md)
     - [Caching](./digging_deeper/caching.md)
     - [Cors](./digging_deeper/cors.md)
+    - [Translating](./digging_deeper/translating.md)
 - [Hacking](./hacking/templating.md)
     - [Templating](./hacking/templating.md)

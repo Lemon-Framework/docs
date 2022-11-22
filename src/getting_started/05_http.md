@@ -4,7 +4,7 @@ Lemon has builtin http abstraction which helps you work with request and respons
 
 ## Request
 
-Class \Lemon\Http\Request is created from sent data before booting (curently done with Lifecycle::init()). 
+Class \Lemon\Http\Request is created from sent data automaticaly before we our app is booted. 
 
 While creating routing callback, we can `inject` this request into the function (injecting will be covered in lifecycle chapter), we simply do that by specifying the type in the function.
 
