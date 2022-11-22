@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - master
-  pull_request:
-
 jobs:
   deploy:
     # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
