@@ -41,6 +41,7 @@ Route::post("/posts/edit/{post}", function($post, \Lemon\Http\Request $request) 
     $request->headers // ["Content-Type" => "application/x-www-form-urlencoded"]
     $request->body // title=something
     $request->cookies // ["CSRF_TOKEN" => "lmoyiVzP82ZvSUSXx0FaOvpwdv1h4uxj"]
+    $request->ip // 127.0.0.1
 });
 ```
 
