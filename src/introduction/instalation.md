@@ -12,4 +12,4 @@ Once you download lemon, create folder public and file public/index.php, this wi
 
 ## Replit
 
-To setup Lemon on replit, simply fork [this template](https://replit.com/@tenmajkl/lemon-template).
+To setup Lemon on replit, simply fork [this template](https://replit.com/@tenmajkl/Lemon).
