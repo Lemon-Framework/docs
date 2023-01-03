@@ -29,6 +29,22 @@ Another way is to create route with only template using `\Lemon\Route::template(
 
 Syntax can be divided in two parts, output and directive.
 
+## Syntax highlighting
+
+### Vim
+
+Download [official plugin](https://github.com/Lemon-Framework/vim)
+
+### Other editors
+
+For most editors, html highlighting should work.
+
+To enable html highlighting on github, simply put this into `.gitattributes`:
+
+```
+*.juice linguist-language=html
+```
+
 ## Output
 
 In raw php you would do something like `<?php echo $variable ?>` however this is unsafe because if our variable has some html content inside it will be rendered which can lead to (xss attack)[https://en.wikipedia.org/wiki/Cross-site_scripting?wprov=sfti1]. In Juice you can use `{{ content }}` syntax which thanks to context-aware escaping (concept from nette) is lot safer as it escapes differently in different parts of html.
