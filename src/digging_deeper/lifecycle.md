@@ -180,7 +180,7 @@ Now we just have to return the app.
 ```php
 include __DIR__.'/vendor/autoload.php';
 
-use Lemon\Kernel\Aplication;
+use Lemon\Kernel\Application;
 
 $application = new Application(__DIR__);
 
