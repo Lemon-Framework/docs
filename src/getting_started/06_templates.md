@@ -85,7 +85,7 @@ For `{ if !something }` there is syntax sugar `{ unless something }`
     ...
 { /while }
 
-{ for $i; $i < 100; ++$i }
+{ for $i = 0; $i < 100; ++$i }
     ...
 { /for }
 
